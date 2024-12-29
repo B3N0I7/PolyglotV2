@@ -4,5 +4,49 @@
   width: 90vw;
   height: 70vh;
   margin: 0 auto;
-  display: flex;
+  /* display: flex; */
+}
+
+.title {
+  text-align: center;
+  font-size: 24px;
+  font-weight: 600;
+  color: #333533;
+  margin-top: 0;
+  padding-top: 0.5em;
+  padding-bottom: 0.5em;
+}
+
+label {
+  padding: 1em;
+  margin: 1em;
+  color: #cfdbd5;
+}
+
+input {
+  padding: 1em;
+  margin: 1em;
+}
+
+button {
+  padding: 1em;
+  margin: 1em;
+}
+
+table {
+  width: 75%; /* Pour occuper toute la largeur disponible */
+  border-collapse: collapse; /* Pour supprimer les espaces entre les cellules */
+}
+
+td {
+  padding: 8px; /* Espacement interne */
+  border: 1px solid #ccc; /* Bordure des cellules */
+}
+
+label {
+  font-weight: bold; /* Mettre les labels en gras pour une meilleure lisibilité */
+}
+
+button {
+  margin-right: 10px; /* Espacement entre les boutons */
 }
