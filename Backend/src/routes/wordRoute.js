@@ -6,4 +6,8 @@ router.get("/get-all-words", wordController.getAllWords);
 
 router.post("/create-new-word", wordController.createNewWord);
 
+router.put("/modify-word/:id", wordController.modifyWord);
+router.get("/english-word/:englishWord", wordController.getWordInEnglish);
+router.get("/french-word/:frenchWord", wordController.getWordInFrench);
+
 module.exports = router;
