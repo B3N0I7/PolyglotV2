@@ -1,0 +1,16 @@
+.footer {
+  background-color: #242423;
+  width: 90vw;
+  height: 10vh;
+  margin: 0 auto;
+  display: flex;
+}
+
+p {
+  font-family: "Trebuchet MS";
+  font-weight: 500;
+  font-size: 0.8rem;
+  color: #f5cb5c;
+  margin: 0 auto;
+  padding-top: 4dvh;
+}
