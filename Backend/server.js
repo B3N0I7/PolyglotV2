@@ -1,6 +1,7 @@
 const express = require("express");
 const cors = require("cors");
 const connectDB = require("./src/config/polyglotdb");
+const wordRoute = require("./src/routes/wordRoute");
 
 require("dotenv").config();
 
@@ -16,6 +17,8 @@ app.use(
 app.use(express.json());
 
 connectDB();
+
+app.use("/word", wordRoute);
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
