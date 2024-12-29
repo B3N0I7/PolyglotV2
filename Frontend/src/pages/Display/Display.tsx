@@ -29,7 +29,7 @@ export const Display = () => {
   return (
     <Layout>
       <div className="display">
-        <h3>{TITLE}</h3>
+        <div className="title">{TITLE}</div>
         <br />
         <table>
           <thead>
