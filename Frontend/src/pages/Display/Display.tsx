@@ -1,9 +1,12 @@
 import { Layout } from "./../../Layout/Layout";
+import "./display.css";
 
 export const Display = () => {
   return (
     <Layout>
-      <h1>Afficher</h1>
+      <div className="display">
+        <h1>Afficher</h1>
+      </div>
     </Layout>
   );
 };

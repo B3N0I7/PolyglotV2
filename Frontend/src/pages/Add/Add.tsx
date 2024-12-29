@@ -1,9 +1,12 @@
 import { Layout } from "./../../Layout/Layout";
+import "./add.css";
 
 export const Add = () => {
   return (
     <Layout>
-      <h1>Ajouter</h1>
+      <div className="add">
+        <h1>Ajouter</h1>
+      </div>
     </Layout>
   );
 };
