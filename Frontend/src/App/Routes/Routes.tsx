@@ -6,6 +6,7 @@ import { Add } from "../../pages/Add";
 import { Modify } from "../../pages/Modify";
 import { QuizEnglishToFrench } from "../../pages/QuizEnglishToFrench";
 import { QuizFrenchToEnglish } from "../../pages/QuizFrenchToEnglish";
+import { LearnByCopying } from "../../pages/LearnByCopying/LearnByCopying";
 
 export const PolyglotRoutes = () => {
   console.log("ROUTE_URL:", ROUTE_URL);
@@ -23,6 +24,7 @@ export const PolyglotRoutes = () => {
         path={ROUTE_URL.QUIZ_FRENCH_TO_ENGLISH}
         element={<QuizFrenchToEnglish />}
       />
+      <Route path={ROUTE_URL.LEARN} element={<LearnByCopying />} />
     </Routes>
   );
 };
