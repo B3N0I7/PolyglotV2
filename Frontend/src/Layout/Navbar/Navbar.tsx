@@ -27,6 +27,9 @@ export const Navbar = () => {
         >
           Quiz F-E
         </button>
+        <button type="button" onClick={() => navigate("/learn-by-copying")}>
+          Recopier
+        </button>
       </nav>
     </>
   );

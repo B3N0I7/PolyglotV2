@@ -14,4 +14,6 @@ router.get("/random-english", wordController.getRandomEnglishWord);
 router.get("/random-french", wordController.getRandomFrenchWord);
 router.post("/verify-translation", wordController.verifyTranslation);
 
+router.get("/random-words/:count", wordController.getRandomWords);
+
 module.exports = router;

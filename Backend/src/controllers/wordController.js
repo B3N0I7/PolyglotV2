@@ -116,3 +116,19 @@ exports.verifyTranslation = async (req, res) => {
     res.status(500).json({ message: error.message });
   }
 };
+// Get x words
+exports.getRandomWords = async (req, res) => {
+  const count = parseInt(req.params.count, 10);
+  if (isNaN(count) || count <= 0) {
+    return res.status(400).send("Count must be a positive integer");
+  }
+  try {
+    const randomWords = await Word.aggregate([
+      { $sample: { size: count } },
+      { $project: { englishWord: 1, frenchWord: 1, _id: 1 } },
+    ]);
+    res.json(randomWords);
+  } catch (error) {
+    res.status(500).json({ message: error.message, errorCode: "ERR500" });
+  }
+};
