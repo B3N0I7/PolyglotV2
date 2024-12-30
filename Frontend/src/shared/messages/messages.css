@@ -1,0 +1,23 @@
+span {
+  padding: 0.5em;
+}
+
+.colorGreen {
+  color: #00aa00;
+  background-color: #333533;
+}
+
+.colorOrange {
+  color: #f75a05;
+  background-color: #333533;
+}
+
+.colorWhite {
+  color: #ffffff;
+  background-color: #333533;
+}
+
+.colorYellow {
+  color: #f5cb5c;
+  background-color: #333533;
+}
