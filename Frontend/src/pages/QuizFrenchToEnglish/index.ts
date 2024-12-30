@@ -1,0 +1,1 @@
+export { QuizFrenchToEnglish } from "./QuizFrenchToEnglish";

@@ -75,3 +75,44 @@ exports.getWordInFrench = async (req, res) => {
     res.status(500).json({ message: error.message });
   }
 };
+// Quizzes
+exports.getRandomEnglishWord = async (req, res) => {
+  try {
+    const word = await Word.aggregate([{ $sample: { size: 1 } }]);
+    res.json({ englishWord: word[0].englishWord, id: word[0]._id });
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+};
+
+exports.getRandomFrenchWord = async (req, res) => {
+  try {
+    const word = await Word.aggregate([{ $sample: { size: 1 } }]);
+    res.json({ frenchWord: word[0].frenchWord, id: word[0]._id });
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+};
+
+exports.verifyTranslation = async (req, res) => {
+  try {
+    const { wordId, englishWord, frenchWord } = req.body;
+    const word = await Word.findById(wordId);
+
+    if (!word) {
+      return res.status(404).json({ message: "Word not found" });
+    }
+
+    const isCorrect =
+      word.englishWord.toLowerCase() === englishWord.toLowerCase() &&
+      word.frenchWord.toLowerCase() === frenchWord.toLowerCase();
+
+    res.json({
+      isCorrect,
+      correctEnglishWord: word.englishWord,
+      correctFrenchWord: word.frenchWord,
+    });
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+};

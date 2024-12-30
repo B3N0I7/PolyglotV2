@@ -6,8 +6,6 @@ export const Navbar = () => {
   return (
     <>
       <nav className="navbar">
-        {/* <div className="navbar-container">
-          <div className="menu-icon"></div> */}
         <button type="button" onClick={() => navigate("/display")}>
           Afficher
         </button>
@@ -17,11 +15,18 @@ export const Navbar = () => {
         <button type="button" onClick={() => navigate("/modify")}>
           Modifier
         </button>
-        <button type="button" onClick={() => navigate("/quiz")}>
-          Quizzer
+        <button
+          type="button"
+          onClick={() => navigate("/quiz-english-to-french")}
+        >
+          Quiz E-F
         </button>
-        <button type="button">SignIn</button>
-        {/* </div> */}
+        <button
+          type="button"
+          onClick={() => navigate("/quiz-french-to-english")}
+        >
+          Quiz F-E
+        </button>
       </nav>
     </>
   );
