@@ -1,5 +1,7 @@
-table,
-td,
+.signin {
+  margin: 0 auto;
+}
+
 .table-signin {
-  border: solid color #ffffff;
+  border: none;
 }

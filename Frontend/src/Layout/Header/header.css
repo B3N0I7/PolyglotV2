@@ -1,13 +1,16 @@
 .header {
   background-color: #242423;
   color: #f5cb5c;
-  width: 90vw;
+  /* width: 90vw;
   height: 10vh;
-  margin: 0 auto;
+  margin: 0 auto; */
   display: flex;
+  align-items: center;
 }
 
 .header img {
+  height: 125px;
+  width: 125px;
   padding-left: 25px;
   padding-right: 25px;
 }
