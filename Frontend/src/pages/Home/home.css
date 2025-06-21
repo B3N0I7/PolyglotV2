@@ -4,5 +4,24 @@
   width: 90vw;
   height: 70vh;
   margin: 0 auto;
+}
+
+.logo {
   display: flex;
+  justify-content: center;
+  margin: auto;
+  padding: 150px;
+}
+
+.animated-logo {
+  animation: rotate 5s linear infinite; /* Rotation toutes les 5 secondes, linéaire et infinie */
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg); /* Commence à 0 degrés */
+  }
+  to {
+    transform: rotate(360deg); /* Fini à 360 degrés (un tour complet) */
+  }
 }

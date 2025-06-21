@@ -1,4 +1,7 @@
 import { ROUTE_URL_HOME as HOME } from "./../../pages/Home/constants";
+import { ROUTE_URL_SIGNIN as SIGNIN } from "../../authentication/signIn/constants";
+import { ROUTE_URL_SIGNUP as SIGNUP } from "../../authentication/signUp/constants";
+import { ROUTE_URL_ERROSIGN as ERRORSIGN } from "../../authentication/error/constants";
 import { ROUTE_URL_DISPLAY as DISPLAY } from "../../pages/Display/constants";
 import { ROUTE_URL_ADD as ADD } from "../../pages/Add/constants";
 import { ROUTE_URL_MODIFY as MODIFY } from "../../pages/Modify/constants";
@@ -8,6 +11,9 @@ import { ROUTE_URL_LEARN_BY_COPYING as LEARN } from "../../pages/LearnByCopying/
 
 export const ROUTE_URL = {
   HOME,
+  SIGNIN,
+  SIGNUP,
+  ERRORSIGN,
   DISPLAY,
   ADD,
   MODIFY,

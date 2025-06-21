@@ -34,19 +34,19 @@ button {
 }
 
 table {
-  width: 75%; /* Pour occuper toute la largeur disponible */
-  border-collapse: collapse; /* Pour supprimer les espaces entre les cellules */
+  width: 75%;
+  /* border-collapse: collapse; */
 }
 
 td {
-  padding: 8px; /* Espacement interne */
-  border: 1px solid #ccc; /* Bordure des cellules */
+  padding: 8px;
+  /* border: 1px solid #ccc; */
 }
 
 label {
-  font-weight: bold; /* Mettre les labels en gras pour une meilleure lisibilité */
+  font-weight: bold;
 }
 
 button {
-  margin-right: 10px; /* Espacement entre les boutons */
+  margin-right: 10px;
 }

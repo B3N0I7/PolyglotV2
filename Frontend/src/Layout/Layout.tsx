@@ -2,7 +2,11 @@ import { Footer } from "./Footer";
 import { Header } from "./Header";
 import { Navbar } from "./Navbar";
 
-export const Layout = ({ children }) => {
+interface ILayout {
+  children: React.ReactNode;
+}
+
+export const Layout = ({ children }: ILayout) => {
   return (
     <div>
       <Header />
