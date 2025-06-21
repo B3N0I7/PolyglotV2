@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { useNavigate } from "react-router";
 import { Layout } from "./../../Layout/Layout";
 import { API_URL_ADD, TITLE } from "./constants";
 import "./add.css";
@@ -9,14 +10,30 @@ export const Add = () => {
   const [category, setCategory] = useState("");
   const [difficulty, setDifficulty] = useState("");
 
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    const userToken = localStorage.getItem("userToken");
+    if (!userToken) {
+      navigate("/signin");
+    }
+  }, [navigate]);
+
   const handleSubmit = async (event: { preventDefault: () => void }) => {
     event.preventDefault();
-    console.log(`${englishWord}-${frenchWord}`);
+
+    const userToken = localStorage.getItem("userToken");
+    if (!userToken) {
+      navigate("/signin");
+      return;
+    }
+
     try {
       const response = await fetch(`${API_URL_ADD}`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
+          Authorization: `Bearer ${userToken}`,
         },
         body: JSON.stringify({
           englishWord: englishWord,
@@ -24,19 +41,22 @@ export const Add = () => {
           category: category,
           difficulty: difficulty,
           creationDate: new Date().toISOString(),
-          //   creationDate: Date.UTC,
         }),
       });
-      console.log(response);
+
       if (response.ok) {
         setEnglishWord("");
         setFrenchWord("");
         setCategory("");
         setDifficulty("");
+      } else if (response.status === 401 || response.status === 403) {
+        localStorage.removeItem("userToken");
+        navigate("/signin");
       } else {
-        console.error("Word not added.");
+        const errorData = await response.json();
+        console.error("Word not added. Server response:", errorData.message);
       }
-    } catch (error) {
+    } catch (error: unknown) {
       console.error("Error: ", error);
     }
   };
