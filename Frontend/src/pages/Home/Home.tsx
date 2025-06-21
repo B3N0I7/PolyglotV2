@@ -5,7 +5,13 @@ export const Home = () => {
   return (
     <Layout>
       <div className="home">
-        <h1>Home page!</h1>
+        <div className="logo">
+          <img
+            src="logopolyglot.png"
+            alt="Logo de l'application Polyglot"
+            className="animated-logo"
+          />
+        </div>
       </div>
     </Layout>
   );
