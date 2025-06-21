@@ -1,0 +1,13 @@
+/* Ce style est essentiel pour que le Flexbox fonctionne sur toute la hauteur de la page */
+html,
+body,
+#root {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+/* Une bonne pratique pour éviter les débordements avec le padding */
+* {
+  box-sizing: border-box;
+}

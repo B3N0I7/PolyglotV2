@@ -1,10 +1,11 @@
 .display {
-  background-color: #cfdbd5;
+  /* background-color: #cfdbd5;
   color: #333533;
   width: 90vw;
   height: 70vh;
-  margin: 0 auto;
+  margin: 0 auto; */
   /* display: flex; */
+  padding: 20px;
 }
 
 .title {

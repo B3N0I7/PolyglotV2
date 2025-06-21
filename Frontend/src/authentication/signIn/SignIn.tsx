@@ -43,7 +43,7 @@ export const SignIn = () => {
 
   return (
     <Layout>
-      <div>
+      <div className="signin">
         <table className="table-signin">
           <thead>
             <tr>
