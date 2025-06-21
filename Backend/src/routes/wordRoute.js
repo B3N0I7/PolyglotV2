@@ -1,10 +1,11 @@
 const express = require("express");
 const router = express.Router();
 const wordController = require("./../controllers/wordController");
+const authMiddleware = require("./../middlewares/authMiddleware");
 
 router.get("/get-all-words", wordController.getAllWords);
 
-router.post("/create-new-word", wordController.createNewWord);
+router.post("/create-new-word", authMiddleware, wordController.createNewWord);
 
 router.put("/modify-word/:id", wordController.modifyWord);
 router.get("/english-word/:englishWord", wordController.getWordInEnglish);
