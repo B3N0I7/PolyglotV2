@@ -1,0 +1,17 @@
+{
+  "short_name": "Polyglot",
+  "name": "Polyglot - Application to learn languages",
+  "icons": [
+    {
+      "src": "/icons/favicon.ico",
+      "type": "image/x-icon",
+      "sizes": "96x96 64x64 32x32 24x24 16x16"
+    }
+  ],
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#000000",
+  "background_color": "#ffffff",
+  "description": "App for learning languages with dictionaries, exercises and quizzes",
+  "lang": "fr-FR"
+}
