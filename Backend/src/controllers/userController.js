@@ -21,7 +21,7 @@ exports.SignIn = async (req, res) => {
     return res.status(400).send("Invalid user or password");
   }
   const token = jwt.sign(
-    { userId: user._id },
+    { userId: user._id, email: user.email },
     "OnceUponATimeInHollywoodElGatoComeEverythingHeFind",
     { expiresIn: "1h" }
   );

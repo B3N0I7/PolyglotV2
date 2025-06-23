@@ -13,7 +13,7 @@ export const Add = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    const userToken = localStorage.getItem("userToken");
+    const userToken = sessionStorage.getItem("userToken");
     if (!userToken) {
       navigate("/signin");
     }
@@ -66,7 +66,6 @@ export const Add = () => {
     setFrenchWord("");
     setCategory("");
     setDifficulty("");
-    console.log("Formulaire réinitialisé.");
   };
 
   return (

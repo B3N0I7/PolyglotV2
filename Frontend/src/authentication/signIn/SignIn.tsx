@@ -23,7 +23,7 @@ export const SignIn = () => {
 
       if (response.ok) {
         const data = await response.json();
-        localStorage.setItem("userToken", data.token);
+        sessionStorage.setItem("userToken", data.token);
         setIsConnected(true);
         navigate("/");
       } else {

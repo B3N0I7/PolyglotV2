@@ -12,7 +12,6 @@ import { QuizFrenchToEnglish } from "../../pages/QuizFrenchToEnglish";
 import { LearnByCopying } from "../../pages/LearnByCopying/LearnByCopying";
 
 export const PolyglotRoutes = () => {
-  console.log("ROUTE_URL:", ROUTE_URL);
   return (
     <Routes>
       <Route path={ROUTE_URL.HOME} element={<Home />} index />

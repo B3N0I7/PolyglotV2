@@ -24,7 +24,8 @@ interface IAuthProvider {
 
 export const AuthProvider = ({ children }: IAuthProvider) => {
   const [isConnected, setIsConnected] = useState<boolean>(
-    () => localStorage.getItem("userToken") !== null
+    () => sessionStorage.getItem("userToken") !== null
+    // () => localStorage.getItem("userToken") !== null
   );
 
   const value: IAuthContext = {

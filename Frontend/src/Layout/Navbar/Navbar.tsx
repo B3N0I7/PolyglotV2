@@ -8,7 +8,7 @@ export const Navbar = () => {
   const { isConnected, setIsConnected } = useContext(AuthContext);
 
   const handleLogout = () => {
-    localStorage.removeItem("userToken");
+    sessionStorage.removeItem("userToken");
     setIsConnected(false);
     navigate("/");
   };
