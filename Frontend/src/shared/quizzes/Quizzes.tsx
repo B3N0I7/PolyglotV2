@@ -59,7 +59,6 @@ export const Quizzes = ({
       });
 
       if (!response.ok) {
-        console.log("FAUX");
         throw new Error(`Erreur HTTP! statut: ${response.status}`);
       }
 

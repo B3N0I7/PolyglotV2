@@ -19,10 +19,8 @@ export const Modify = () => {
     const url = isEnglish
       ? `${API_URL_ENGLISH_WORD}/${searchWord}`
       : `${API_URL_FRENCH_WORD}/${searchWord}`;
-    console.log(url);
     try {
       const response = await fetch(url);
-      console.log(response);
       if (!response.ok) {
         throw new Error("Word not found");
       }
@@ -55,8 +53,7 @@ export const Modify = () => {
         }
 
         if (!response.ok) {
-          console.log("KO");
-          //throw new Error("Error updating word");
+          throw new Error("Error updating word");
         }
       } catch (error) {
         console.error("Error :", error);

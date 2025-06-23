@@ -9,7 +9,6 @@ export const Display = () => {
 
   useEffect(() => {
     const fetchWords = async () => {
-      console.log({ API_URL_DISPLAY });
       try {
         const response = await fetch(`${API_URL_DISPLAY}`, {
           method: "GET",
