@@ -1,5 +1,6 @@
 const express = require("express");
 const cors = require("cors");
+const cookieParser = require("cookie-parser");
 const connectDB = require("./src/config/polyglotdb");
 const wordRoute = require("./src/routes/wordRoute");
 const userRoute = require("./src/routes/userRoute");
@@ -16,6 +17,7 @@ app.use(
   })
 );
 app.use(express.json());
+app.use(cookieParser());
 
 connectDB();
 

@@ -20,10 +20,34 @@ exports.SignIn = async (req, res) => {
   if (!isPasswordValid) {
     return res.status(400).send("Invalid user or password");
   }
+  console.log(`userController secret: ${process.env.JWT_SECRET}`);
   const token = jwt.sign(
     { userId: user._id, email: user.email },
-    "OnceUponATimeInHollywoodElGatoComeEverythingHeFind",
+    process.env.JWT_SECRET,
     { expiresIn: "1h" }
   );
-  res.json({ token });
+  console.log(`signin token: ${token}`);
+  res.cookie("polyglotToken", token, {
+    // httpOnly: true,
+    // secure: process.env.NODE_ENV === "production",
+    // sameSite: "strict",
+    httpOnly: true,
+    secure: false,
+    sameSite: "lax",
+    maxAge: 3 * 60 * 1000,
+  });
+  res.status(200).json({ message: "Connexion réussie" });
+};
+
+exports.checkAuth = async (req, res) => {
+  // Si on arrive ici, c'est que authMiddleware a validé le token
+  res.status(200).json({
+    authenticated: true,
+    userId: req.user.userId,
+  });
+};
+
+exports.SignOut = async (req, res) => {
+  res.clearCookie("polyglotToken");
+  res.json({ message: "Déconnexion réussie" });
 };
