@@ -17,8 +17,6 @@ export const LearnByCopying = () => {
       const response = await fetch(`${API_URL_LEARN}/${count}`);
       const data: IRandomWord[] = await response.json();
       setRandomWords(data);
-      //   setWordIndex(0);
-      //   setUserInputs(["", "", ""]);
     } catch (error) {
       console.error("Error :", error);
     }
@@ -112,7 +110,6 @@ export const LearnByCopying = () => {
                 </tr>
               </thead>
               <tbody>
-                {/* {randomWords.map((randomWord) => ( */}
                 <tr key={randomWords[wordIndex]._id}>
                   <td>
                     {isEnglish
@@ -137,9 +134,6 @@ export const LearnByCopying = () => {
                         placeholder="recopier"
                       />
                     ))}
-                    {/* <input type="text" placeholder="recopier" />
-                      <input type="text" placeholder="recopier" />
-                      <input type="text" placeholder="recopier" /> */}
                   </td>
                 </tr>
                 <tr>

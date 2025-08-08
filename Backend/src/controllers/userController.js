@@ -28,9 +28,6 @@ exports.SignIn = async (req, res) => {
   );
   console.log(`signin token: ${token}`);
   res.cookie("polyglotToken", token, {
-    // httpOnly: true,
-    // secure: process.env.NODE_ENV === "production",
-    // sameSite: "strict",
     httpOnly: true,
     secure: false,
     sameSite: "lax",
@@ -40,7 +37,6 @@ exports.SignIn = async (req, res) => {
 };
 
 exports.checkAuth = async (req, res) => {
-  // Si on arrive ici, c'est que authMiddleware a validé le token
   res.status(200).json({
     authenticated: true,
     userId: req.user.userId,

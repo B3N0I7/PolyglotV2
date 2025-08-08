@@ -146,18 +146,6 @@ export const Quizzes = ({
             </tr>
           </tbody>
         </table>
-        {/* <div className="quiz-buttons-generate-word">
-          <button onClick={generateWord}>
-            Générer un mot{" "}
-            {translationType === "toFrench" ? "anglais" : "français"}
-          </button>
-        </div>
-        <div className="quiz-buttons-test-answer">
-          <button onClick={verifyTranslation}>
-            Vérifier le mot{" "}
-            {translationType === "toFrench" ? "français" : "anglais"}
-          </button>
-        </div> */}
       </div>
     </Layout>
   );

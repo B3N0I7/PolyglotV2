@@ -6,14 +6,12 @@ import {
   SetStateAction,
   useEffect,
 } from "react";
-import { useNavigate } from "react-router";
 import { API_URL_CHECK_AUTH } from "./constants";
 
 interface IAuthContext {
   isConnected: boolean;
   setIsConnected: Dispatch<SetStateAction<boolean>>;
   isLoading: boolean;
-  // setIsConnected: (isConnected: boolean) => void;
 }
 const defaultAuthContextValue: IAuthContext = {
   isConnected: false,
@@ -30,7 +28,6 @@ interface IAuthProvider {
 export const AuthProvider = ({ children }: IAuthProvider) => {
   const [isConnected, setIsConnected] = useState<boolean>(false);
   const [isLoading, setIsLoading] = useState<boolean>(true);
-  const navigate = useNavigate();
 
   useEffect(() => {
     const checkAuthStatus = async () => {
@@ -43,7 +40,6 @@ export const AuthProvider = ({ children }: IAuthProvider) => {
           setIsConnected(true);
         } else {
           setIsConnected(false);
-          //navigate("/signin");
         }
       } catch (error) {
         console.error("Auth check failed", error);
