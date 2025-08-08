@@ -7,10 +7,23 @@ export const Navbar = () => {
   const navigate = useNavigate();
   const { isConnected, setIsConnected } = useContext(AuthContext);
 
-  const handleLogout = () => {
-    sessionStorage.removeItem("userToken");
-    setIsConnected(false);
-    navigate("/");
+  const handleSignOut = async () => {
+    // sessionStorage.removeItem("userToken");
+    try {
+      const response = await fetch("http://localhost:5000/user/signout", {
+        method: "POST",
+        credentials: "include",
+      });
+
+      if (response.ok) {
+        setIsConnected(false);
+        navigate("/signin");
+      } else {
+        console.error("Erreur lors de la déconnexion");
+      }
+    } catch (error) {
+      console.error("Erreur lors de la déconnexion", error);
+    }
   };
 
   return (
@@ -41,7 +54,7 @@ export const Navbar = () => {
           <button type="button" onClick={() => navigate("/learn-by-copying")}>
             Recopier
           </button>
-          <button type="button" onClick={handleLogout}>
+          <button type="button" onClick={handleSignOut}>
             Se déconnecter
           </button>
         </>

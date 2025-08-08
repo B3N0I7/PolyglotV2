@@ -1,5 +1,4 @@
-import { useState, useEffect } from "react";
-import { useNavigate } from "react-router";
+import { useState } from "react";
 import { Layout } from "./../../Layout/Layout";
 import { API_URL_ADD, TITLE } from "./constants";
 import "./add.css";
@@ -10,31 +9,16 @@ export const Add = () => {
   const [category, setCategory] = useState("");
   const [difficulty, setDifficulty] = useState("");
 
-  const navigate = useNavigate();
-
-  useEffect(() => {
-    const userToken = sessionStorage.getItem("userToken");
-    if (!userToken) {
-      navigate("/signin");
-    }
-  }, [navigate]);
-
   const handleSubmit = async (event: { preventDefault: () => void }) => {
     event.preventDefault();
-
-    const userToken = localStorage.getItem("userToken");
-    if (!userToken) {
-      navigate("/signin");
-      return;
-    }
 
     try {
       const response = await fetch(`${API_URL_ADD}`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-          Authorization: `Bearer ${userToken}`,
         },
+        credentials: "include",
         body: JSON.stringify({
           englishWord: englishWord,
           frenchWord: frenchWord,
@@ -50,8 +34,7 @@ export const Add = () => {
         setCategory("");
         setDifficulty("");
       } else if (response.status === 401 || response.status === 403) {
-        localStorage.removeItem("userToken");
-        navigate("/signin");
+        console.log("401 ou 403");
       } else {
         const errorData = await response.json();
         console.error("Word not added. Server response:", errorData.message);
@@ -137,41 +120,6 @@ export const Add = () => {
               </tr>
             </tbody>
           </table>
-          {/* <label>Entrer le mot en anglais</label>
-          <input
-            type="text"
-            value={englishWord}
-            onChange={(e) => setEnglishWord(e.target.value)}
-            required
-          />
-          <br />
-          <label>Entrer le mot en français</label>
-          <input
-            type="text"
-            value={frenchWord}
-            onChange={(e) => setFrenchWord(e.target.value)}
-            required
-          />
-          <br />
-          <label>Entrer la catégorie</label>
-          <input
-            type="text"
-            value={category}
-            onChange={(e) => setCategory(e.target.value)}
-          />
-          <br />
-          <label>Entrer le niveau de difficulté</label>
-          <input
-            type="text"
-            value={difficulty}
-            onChange={(e) => setDifficulty(e.target.value)}
-          />
-          <br />
-          <button type="submit">Valider</button>
-          <button type="button" onClick={handleQuit}>
-            Effacer
-          </button>
-          <br /> */}
         </form>
       </div>
     </Layout>

@@ -2,6 +2,7 @@ import { useState, useContext } from "react";
 import { useNavigate } from "react-router";
 import { Layout } from "../../Layout";
 import { AuthContext } from "../../context/AuthContext";
+import { API_URL_SIGNIN } from "./constants";
 import "./signIn.css";
 
 export const SignIn = () => {
@@ -15,15 +16,16 @@ export const SignIn = () => {
   const handleSignin = async () => {
     setError(null);
     try {
-      const response = await fetch("http://localhost:5000/user/signin", {
+      const response = await fetch(`${API_URL_SIGNIN}`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email, password }),
+        credentials: "include",
       });
 
       if (response.ok) {
-        const data = await response.json();
-        sessionStorage.setItem("userToken", data.token);
+        // const data = await response.json();
+        // sessionStorage.setItem("userToken", data.token);
         setIsConnected(true);
         navigate("/");
       } else {
