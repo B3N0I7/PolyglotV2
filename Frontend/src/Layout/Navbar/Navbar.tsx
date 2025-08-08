@@ -8,7 +8,6 @@ export const Navbar = () => {
   const { isConnected, setIsConnected } = useContext(AuthContext);
 
   const handleSignOut = async () => {
-    // sessionStorage.removeItem("userToken");
     try {
       const response = await fetch("http://localhost:5000/user/signout", {
         method: "POST",

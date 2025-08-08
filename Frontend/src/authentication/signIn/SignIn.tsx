@@ -24,8 +24,6 @@ export const SignIn = () => {
       });
 
       if (response.ok) {
-        // const data = await response.json();
-        // sessionStorage.setItem("userToken", data.token);
         setIsConnected(true);
         navigate("/");
       } else {
