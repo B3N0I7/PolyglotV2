@@ -20,13 +20,11 @@ exports.SignIn = async (req, res) => {
   if (!isPasswordValid) {
     return res.status(400).send("Invalid user or password");
   }
-  console.log(`userController secret: ${process.env.JWT_SECRET}`);
   const token = jwt.sign(
     { userId: user._id, email: user.email },
     process.env.JWT_SECRET,
     { expiresIn: "1h" }
   );
-  console.log(`signin token: ${token}`);
   res.cookie("polyglotToken", token, {
     httpOnly: true,
     secure: false,
