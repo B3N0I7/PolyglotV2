@@ -61,14 +61,6 @@ export const Quizzes = ({
       if (!response.ok) {
         throw new Error(`Erreur HTTP! statut: ${response.status}`);
       }
-
-      const data = await response.json();
-
-      if (data.isCorrect) {
-        console.log("OK");
-      } else {
-        console.log("KO");
-      }
     } catch (error) {
       console.error("Erreur lors de la vérification de la traduction :", error);
     }

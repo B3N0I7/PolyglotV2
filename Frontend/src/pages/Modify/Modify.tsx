@@ -48,10 +48,6 @@ export const Modify = () => {
           }),
         });
 
-        if (response.ok) {
-          console.log("OK");
-        }
-
         if (!response.ok) {
           throw new Error("Error updating word");
         }
